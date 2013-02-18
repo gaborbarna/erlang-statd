@@ -3,12 +3,12 @@
 -export([init/1, handle_info/2, terminate/2]).
 -export([code_change/3, handle_call/3, handle_cast/2]).
 
-init([]) ->
+init(Server) ->
     StatFns = [{fun commons:get_battery/0, 10000},
                {fun commons:get_thermal/0, 1000}],
     lists:map(fun({Fn, T}) -> timer:send_interval(T, Fn) end, StatFns),
-    net_kernel:connect_node(lr@szalon),
-    {ok, []}.
+    net_kernel:connect_node(Server),
+    {ok, Server}.
 
 notify_server(Stat) ->
     gen_event:notify({global, statsrv}, {stat_info, Stat}).
