@@ -6,8 +6,11 @@
 init([]) ->
     {ok, []}.
 
-handle_event({stat_info, {Host, Name, Val}}, State) ->
-    io:format("~s ~s: ~p~n", [Name, Host, Val]), 
+display_stat({Name, Host, Val}) ->
+    io:format("(~s) ~s: ~p~n", [Name, Host, Val]).
+    
+handle_event({stat_info, Stats}, State) ->
+    lists:foreach(fun display_stat/1, Stats),
     {ok, State};
 handle_event(_, State) ->
     {ok, State}.

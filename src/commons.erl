@@ -27,3 +27,22 @@ parse_acpi_output(Data, Column, FormatFn) ->
     [{construct_acpi_header(L), FormatFn(nth_term(Column, L))}
      || L <- Lines, L =/= ""].
 
+%% get_load({PrevIdle, PrevTotal}) ->
+%%     {ok, F} = file:open("/proc/stat", read),
+%%     {ok, Line} = file:read_line(F),
+%%     Splitted = re:split(Line, "\s", [{return, list}]),
+%%     file:close(F),
+%%     {get_idle(Splitted), get_total(Splitted)}.
+    
+%% get_idle(Splitted) ->
+%%     IdleT = [fun(L) -> lists:nth(6, L) end,
+%%              fun(S) -> {N, _} = string:to_integer(S), N end],
+%%     lists:foldl(fun(Fn, Acc) -> Fn(Acc) end, Splitted, IdleT).
+    
+%% get_total(Splitted) ->
+%%     ToInt = fun(S) -> {N, _} = string:to_integer(S), N end,
+%%     TotalT = [fun(L) -> lists:sublist(L, 3, 4) end,
+%%               fun(L) -> lists:foldl(fun(X, Acc) -> ToInt(X) + Acc end,
+%%                                     0, L) end],
+%%     lists:foldl(fun(Fn, Acc) -> Fn(Acc) end, Splitted, TotalT).
+    
