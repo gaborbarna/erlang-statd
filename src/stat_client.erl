@@ -15,15 +15,14 @@ init(Server) ->
     {ok, {Server, _IfStat=commons:init_ifstat()}}.
 
 notify_server(Stats) ->
-    gen_event:notify({global, statsrv}, {stat_info, Stats}).
+    gen_event:notify({global, statsrv}, {stat_info, node(), Stats}).
 
 handle_info(ifstat, _State={Server, IfStat}) ->
     {Delta, NewIfStat} = commons:get_ifbytes(IfStat),
-    Stats = [{node(), Name, Value} || {Name, Value} <- Delta],
-    notify_server(Stats),
+    notify_server(Delta),
     {noreply, {Server, NewIfStat}};
 handle_info(StatFn, State) ->
-    Stats = [{node(), Name, Val} || {Name, Val} <- StatFn()],
+    Stats = StatFn(),
     notify_server(Stats),
     {noreply, State}.
 
