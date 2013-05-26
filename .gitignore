@@ -1,2 +1,7 @@
 *.erl~
 *.beam
+*.html~
+*.coffee~
+*.src~
+*.dump
+stat_server/deps

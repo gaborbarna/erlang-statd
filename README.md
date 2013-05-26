@@ -9,12 +9,7 @@ Usage
 ### Server
 
 ```
-erl -sname foo
-```
-
-```
-c(stat_server).
-stat_server:start_server().
+rebar -get-deps compile; ./start.sh
 ```
 
 ### Client
@@ -25,6 +20,6 @@ erl -sname bar
 
 ```
 c(commons), c(stat_client).
-gen_server:start_link(stat_client, foo@hostname, []).
+gen_server:start_link(stat_client, server@hostname, []).
 ```
 

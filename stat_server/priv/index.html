@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>   
+  <head>       
+    <meta charset="UTF-8">       
+    <title>Stat GUI</title>       
+    <link href="/static/stats.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css"
+          rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="/static/jquery.ba-resize.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/flot/0.8/jquery.flot.min.js"></script>
+    <script src="/static/jquery.flot.time.js"></script>
+    <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+    <script src="/static/stats.js"></script>
+  </head>   
+  <body>
+
+    <div id="tpl_resource_container" style="display: none">
+      <div class="stat">
+        <div class="button-container">
+          <input type="button" class="btn btn-mini btn-close" value="close" />
+        </div>
+        <div style="clear: both;"></div>
+        <div class="plot-container">
+        </div>
+      </div>
+    </div>
+    
+    <div id="tpl_node_menu" style="display: none">
+      <li class="dropdown">
+        <a class="dropdown-toggle"
+           data-toggle="dropdown" href="#">
+          <span class="node-name"></span>
+          <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu submenu" role="menu">
+        </ul>
+      </li>
+    </div>
+
+    <div id="tpl_resource_menu" style="display: none">
+      <li>
+        <a href="#" class="resource-link">
+          <span class="resource-name"></span>
+        </a>
+      </li>
+    </div>
+    
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div id="toplevel" class="span2">
+          <ul class="nav nav-tabs nav-stacked" id="nav_ul">
+          </ul>
+        </div>
+
+        <div class="stat-container" class="span10">
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

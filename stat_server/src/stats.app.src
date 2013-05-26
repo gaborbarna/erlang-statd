@@ -1,0 +1,13 @@
+{application, stats, [
+	{description, "stat server"},
+	{vsn, "1"},
+	{modules, []},
+	{registered, []},
+	{applications, [
+		kernel,
+		stdlib,
+		cowboy
+	]},
+	{mod, {stats_app, []}},
+	{env, []}
+]}.

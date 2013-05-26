@@ -1,0 +1,29 @@
+.stat {
+    background-color:#fdf6e3;
+    float:left;
+    margin:10px;
+    padding:10px;
+    max-width: 800px;
+    max-height: 600px;
+    resize:both;
+    overflow:auto;
+}
+
+.plot-container {
+    width:100%;
+    height: 100%;
+    min-width: 300px;
+    min-height: 200px;
+}
+
+.button-container {
+    float: right;
+}
+
+.stat .button-container {
+    opacity: 0;
+}
+
+.stat:hover .button-container {
+    opacity: 1;
+}
