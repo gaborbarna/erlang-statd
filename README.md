@@ -9,7 +9,7 @@ Usage
 ### Server
 
 ```
-rebar -get-deps compile; ./start.sh
+rebar get-deps compile; ./start.sh
 ```
 
 ### Client
